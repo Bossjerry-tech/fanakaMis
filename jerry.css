@@ -1,0 +1,433 @@
+/* Universal Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* You might want to link this font in your HTML head */
+}
+
+/* Container Styles */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* To prevent video overflow issues */
+}
+
+/* Background Video Styles */
+.back-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Puts the video behind other content */
+    object-fit: cover; /* Ensures the video covers the entire area */
+    filter: brightness(60%); /* Darkens the video a bit for text readability */
+}
+
+/* Navigation Styles */
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%; /* Padding for sides and top */
+    z-index: 100; /* Ensures nav is above other elements */
+}
+
+nav img {
+    width: 40px; /* Size of the menu/close icons */
+    cursor: pointer;
+    display: none; /* Hidden by default, shown on smaller screens by JS */
+}
+
+nav img.menu-icon {
+    display: block; /* Initially show menu icon */
+}
+
+nav img.close-icon {
+    display: none; /* Initially hide close icon */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #007bff; /* Highlight color */
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color:orange;
+}
+
+/* Header/Hero Section Styles */
+.head {
+    text-align: center;
+    color: #fff;
+    z-index: 1; /* Ensures text is above the video */
+    padding: 20px;
+}
+
+.head h1 {
+    font-size: 150px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow for readability */
+    color: #e40c71;
+}
+
+.head a {
+    text-decoration: none;
+    display: inline-block;
+    background: #7fdb07;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 70px;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.head a:hover {
+    background: #b3a700;
+    transform: translateY(-3px);
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablets and small desktops */
+@media (max-width: 992px) {
+    .head h1 {
+        font-size: 50px;
+    }
+
+    nav ul {
+        margin-right: 0;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    nav img {
+        display: block; /* Show menu and close icons */
+    }
+
+    nav ul {
+        background: rgba(0, 0, 0, 0.9); /* Dark overlay for mobile menu */
+        position: fixed;
+        top: 0;
+        right: -250px; /* Initially hidden off-screen */
+        width: 250px;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 80px;
+        transition: right 0.5s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul.show-menu {
+        right: 0; /* Slide in menu */
+    }
+
+    nav ul li {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+        display: block; /* Make links take full width for easier tapping */
+        padding: 10px;
+    }
+
+    nav ul li a::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .head h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 15px 3%;
+    }
+
+    nav img {
+        width: 35px;
+    }
+
+    .head h1 {
+        font-size: 30px;
+    }
+
+    .head a {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
+
+/*about*/
+
+/* Universal Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Recommended: Link Poppins font in your HTML head */
+}
+
+/* Container Styles */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Changed to column to stack content vertically */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* To prevent video overflow issues */
+    color: #fff; /* Default text color for elements on top of the video */
+    text-align: center; /* Center align text globally within container */
+}
+
+/* Background Video Styles */
+.back-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Puts the video behind other content */
+    object-fit: cover; /* Ensures the video covers the entire area */
+    filter: brightness(50%); /* Darkens the video a bit more for text readability */
+}
+
+/* Main Heading (H1 for "ABOUT") Styles */
+.container > h1 { /* Targets the direct H1 child of .container */
+    font-size: 80px; /* Larger font for the main section title */
+    font-weight: 700;
+    margin-bottom: 40px; /* Space below the H1 */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Stronger shadow for impact */
+    position: relative; /* Needed for z-index to work */
+    z-index: 1; /* Ensures it's above the video */
+    text-transform: uppercase; /* Makes the heading uppercase */
+    letter-spacing: 5px;
+}
+
+/* About Section Styles */
+.about {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    max-width: 800px; /* Max width for the content block */
+    width: 90%; /* Responsive width */
+    position: relative;
+    z-index: 1; /* Ensures it's above the video */
+    margin-top: 20px; /* Space from the main H1 */
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #007bff; /* Accent color for the heading */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #e0e0e0; /* Slightly lighter white for paragraph text */
+}
+
+/* Responsive Adjustments */
+
+/* Tablets and smaller desktops */
+@media (max-width: 992px) {
+    .container > h1 {
+        font-size: 70px;
+        margin-bottom: 30px;
+    }
+
+    .about {
+        padding: 30px;
+        max-width: 700px;
+    }
+
+    .about h2 {
+        font-size: 32px;
+    }
+
+    .about p {
+        font-size: 17px;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .container > h1 {
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+
+    .about {
+        padding: 25px;
+        width: 95%; /* Take more width on smaller screens */
+        margin-top: 15px;
+    }
+
+    .about h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .about p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container > h1 {
+        font-size: 35px;
+        margin-bottom: 15px;
+        letter-spacing: 3px;
+    }
+
+    .about {
+        padding: 20px;
+        margin-top: 10px;
+    }
+
+    .about h2 {
+        font-size: 24px;
+    }
+
+    .about p {
+        font-size: 15px;
+    }
+}
+
+
+
+/*projects*/
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0068d;
+    color: #333;
+}
+
+/* Hero container */
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.hero h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+/* Grid layout for projects */
+.reap {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    margin: 20px;
+    padding: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.reap:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.reap img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.reap h2 {
+    font-size: 1.4rem;
+    color: #007acc;
+    margin: 15px 20px 10px;
+}
+
+.reap p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0 20px 20px;
+    line-height: 1.4;
+}
+
+/* Layout: 3-column grid on desktop, 2 on tablet, 1 on mobile */
+.hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #1a1a1a;
+    color: #eee;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+    font-size: 0.9rem;
+}
